@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+<h1> icCircle ({{posts|length}} posts) </h1>
+
+{{ posts }}
+{% block content %}
+    <ul>
+    {% for post in posts %}
+        <h2><a href="{% url 'icCircle:show' id=post.id %}">#{{post.id}} - {{post.title|upper}}</a></h2>
+        <li>{{post.body|truncatewords:3}}</li>
+
+        <p><a href="/icCircle/posts/{{ post.id }}">Lire la suite</a></p>
+        {% empty %}
+            <p> il n'y a pas de post</p>
+    {% endfor %}
+    </ul>
+{% endblock %}

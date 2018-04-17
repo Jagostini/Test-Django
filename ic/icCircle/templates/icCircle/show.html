@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    <article>
+        <h1>Show post details #{{post.id}}</h1>
+        <p>{{ post.body }}</p>
+    </article>
+
+    <p><a href="{% url 'icCircle:index' %}">👈 back to index</a></p>
+{% endblock %}
